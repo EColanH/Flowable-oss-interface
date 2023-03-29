@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowable="http://flowable.org/cmmn" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:design="http://flowable.org/design" targetNamespace="http://www.flowable.org/casedef">
+  <case id="claimsCase" name="Claims Case" flowable:initiatorVariableName="initiator" flowable:candidateStarterGroups="FlowableUser">
+    <documentation>Example of a simple claims CMMN model</documentation>
+    <casePlanModel id="casePlanModel" flowable:formFieldValidation="true" autoComplete="true">
+      <extensionElements>
+        <flowable:default-menu-navigation-size><![CDATA[expanded]]></flowable:default-menu-navigation-size>
+        <flowable:work-form-field-validation><![CDATA[false]]></flowable:work-form-field-validation>
+        <design:stencilid><![CDATA[CasePlanModel]]></design:stencilid>
+      </extensionElements>
+      <planItem id="planItemsid-C96C8186-AF5D-4BF9-9D00-6CE267432655" name="Receive claim" definitionRef="sid-C96C8186-AF5D-4BF9-9D00-6CE267432655">
+        <exitCriterion id="exitCriterion4" sentryRef="sentryexitCriterion4"></exitCriterion>
+      </planItem>
+      <planItem id="planItemsid-F6F08D75-51AD-4E14-B86A-9CE66B50F590" name="Investigate claim" definitionRef="sid-F6F08D75-51AD-4E14-B86A-9CE66B50F590">
+        <entryCriterion id="entryCriterion9" sentryRef="sentryentryCriterion9"></entryCriterion>
+      </planItem>
+      <planItem id="planItemsid-26012CC7-9A7B-40A0-B0DF-AF605036EE45" name="Handle claim" definitionRef="sid-26012CC7-9A7B-40A0-B0DF-AF605036EE45">
+        <entryCriterion id="sid-DD393CD8-F0AA-4AC7-9DB3-83E08330BC70" sentryRef="sentrysid-DD393CD8-F0AA-4AC7-9DB3-83E08330BC70"></entryCriterion>
+      </planItem>
+      <planItem id="planItemhumanTask1" name="Update claimant contact details" definitionRef="humanTask1">
+        <itemControl>
+          <repetitionRule flowable:counterVariable="repetitionCounter">
+            <extensionElements></extensionElements>
+          </repetitionRule>
+          <manualActivationRule></manualActivationRule>
+        </itemControl>
+      </planItem>
+      <planItem id="planItemuserEventListener1" name="Abandon claim" definitionRef="userEventListener1"></planItem>
+      <sentry id="sentryexitCriterion5">
+        <extensionElements>
+          <design:stencilid><![CDATA[ExitCriterion]]></design:stencilid>
+        </extensionElements>
+        <planItemOnPart id="sentryOnPartexitCriterion5" sourceRef="planItemuserEventListener1">
+          <standardEvent>occur</standardEvent>
+        </planItemOnPart>
+      </sentry>
+      <sentry id="sentryexitCriterion4">
+        <extensionElements>
+          <design:stencilid><![CDATA[ExitCriterion]]></design:stencilid>
+        </extensionElements>
+        <planItemOnPart id="sentryOnPartexitCriterion4" sourceRef="planItemhumanTask8">
+          <standardEvent>complete</standardEvent>
+        </planItemOnPart>
+      </sentry>
+      <sentry id="sentryentryCriterion9">
+        <extensionElements>
+          <design:stencilid><![CDATA[EntryCriterion]]></design:stencilid>
+        </extensionElements>
+        <planItemOnPart id="sentryOnPartentryCriterion9" sourceRef="planItemsid-C96C8186-AF5D-4BF9-9D00-6CE267432655">
+          <standardEvent>exit</standardEvent>
+        </planItemOnPart>
+      </sentry>
+      <sentry id="sentrysid-DD393CD8-F0AA-4AC7-9DB3-83E08330BC70">
+        <extensionElements>
+          <design:stencilid><![CDATA[EntryCriterion]]></design:stencilid>
+        </extensionElements>
+        <planItemOnPart id="sentryOnPartsid-DD393CD8-F0AA-4AC7-9DB3-83E08330BC70" sourceRef="planItemsid-F6F08D75-51AD-4E14-B86A-9CE66B50F590">
+          <standardEvent>complete</standardEvent>
+        </planItemOnPart>
+      </sentry>
+      <stage id="sid-C96C8186-AF5D-4BF9-9D00-6CE267432655" name="Receive claim" flowable:displayOrder="10" flowable:includeInStageOverview="true">
+        <extensionElements>
+          <design:stencilid><![CDATA[ExpandedStage]]></design:stencilid>
+        </extensionElements>
+        <planItem id="planItemsid-90304D08-098F-46B3-A63B-1BDA7D1B7BA0" name="Capture claim details" definitionRef="sid-90304D08-098F-46B3-A63B-1BDA7D1B7BA0">
+          <itemControl>
+            <requiredRule></requiredRule>
+          </itemControl>
+        </planItem>
+        <planItem id="planItemsid-4F723359-49C6-45AC-BDFE-37B673DC233D" name="Need legal review" definitionRef="sid-4F723359-49C6-45AC-BDFE-37B673DC233D">
+          <itemControl>
+            <manualActivationRule></manualActivationRule>
+          </itemControl>
+        </planItem>
+        <planItem id="planItemhumanTask5" name="Ask for additional Info" definitionRef="humanTask5">
+          <itemControl>
+            <manualActivationRule></manualActivationRule>
+          </itemControl>
+          <entryCriterion id="entryCriterion7" sentryRef="sentryentryCriterion7"></entryCriterion>
+        </planItem>
+        <planItem id="planItemhumanTask8" name="Complete Claim Filing" definitionRef="humanTask8"></planItem>
+        <sentry id="sentryentryCriterion7">
+          <extensionElements>
+            <design:stencilid><![CDATA[EntryCriterion]]></design:stencilid>
+          </extensionElements>
+          <planItemOnPart id="sentryOnPartentryCriterion7" sourceRef="planItemsid-90304D08-098F-46B3-A63B-1BDA7D1B7BA0">
+            <standardEvent>complete</standardEvent>
+          </planItemOnPart>
+        </sentry>
+        <humanTask id="sid-90304D08-098F-46B3-A63B-1BDA7D1B7BA0" name="Capture claim details" flowable:assignee="${initiator}" flowable:formKey="captureClaimForm" flowable:formFieldValidation="true" flowable:candidateGroups="backoffice">
+          <extensionElements>
+            <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+            <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+            <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+          </extensionElements>
+        </humanTask>
+        <humanTask id="sid-4F723359-49C6-45AC-BDFE-37B673DC233D" name="Need legal review" flowable:assignee="${initiator}" flowable:formKey="legalReviewForm" flowable:formFieldValidation="true" flowable:candidateGroups="management">
+          <extensionElements>
+            <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+            <flowable:manual-activation-channels><![CDATA[menu]]></flowable:manual-activation-channels>
+            <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+            <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+          </extensionElements>
+        </humanTask>
+        <humanTask id="humanTask5" name="Ask for additional Info" flowable:assignee="${initiator}" flowable:formKey="additionalClaimInfoForm" flowable:formFieldValidation="false" flowable:candidateGroups="backoffice">
+          <extensionElements>
+            <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+            <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+            <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+          </extensionElements>
+        </humanTask>
+        <humanTask id="humanTask8" name="Complete Claim Filing" flowable:assignee="${initiator}" flowable:formKey="completeClaimFilingForm" flowable:formFieldValidation="false">
+          <extensionElements>
+            <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+            <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+            <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+          </extensionElements>
+        </humanTask>
+      </stage>
+      <stage id="sid-F6F08D75-51AD-4E14-B86A-9CE66B50F590" name="Investigate claim" flowable:displayOrder="20" flowable:includeInStageOverview="true">
+        <extensionElements>
+          <design:stencilid><![CDATA[ExpandedStage]]></design:stencilid>
+        </extensionElements>
+        <planItem id="planItemsid-706378AA-320C-4E10-BE85-AE2CA8ECE6E1" name="Decide claim" definitionRef="sid-706378AA-320C-4E10-BE85-AE2CA8ECE6E1">
+          <entryCriterion id="sid-6B2590FC-2D4D-42D1-B0AD-493691DD6F69" sentryRef="sentrysid-6B2590FC-2D4D-42D1-B0AD-493691DD6F69"></entryCriterion>
+          <exitCriterion id="exitCriterion9" sentryRef="sentryexitCriterion9" flowable:exitEventType="complete"></exitCriterion>
+          <exitCriterion id="exitCriterion8" sentryRef="sentryexitCriterion8" flowable:exitEventType="complete"></exitCriterion>
+        </planItem>
+        <planItem id="planItemhumanTask7" name="Review Claim" definitionRef="humanTask7"></planItem>
+        <sentry id="sentryexitCriterion9">
+          <extensionElements>
+            <design:stencilid><![CDATA[ExitCriterion]]></design:stencilid>
+          </extensionElements>
+          <planItemOnPart id="sentryOnPartexitCriterion9" sourceRef="planItemsid-AB2558E9-8FE2-4698-AA06-A12ADD908CEA">
+            <standardEvent>occur</standardEvent>
+          </planItemOnPart>
+        </sentry>
+        <sentry id="sentrysid-6B2590FC-2D4D-42D1-B0AD-493691DD6F69">
+          <extensionElements>
+            <design:stencilid><![CDATA[EntryCriterion]]></design:stencilid>
+          </extensionElements>
+          <planItemOnPart id="sentryOnPartsid-6B2590FC-2D4D-42D1-B0AD-493691DD6F69" sourceRef="planItemhumanTask7">
+            <standardEvent>complete</standardEvent>
+          </planItemOnPart>
+        </sentry>
+        <sentry id="sentryexitCriterion8">
+          <extensionElements>
+            <design:stencilid><![CDATA[ExitCriterion]]></design:stencilid>
+          </extensionElements>
+          <planItemOnPart id="sentryOnPartexitCriterion8" sourceRef="planItemsid-A4D7AC11-2682-4907-B7C2-F94EE9001BE1">
+            <standardEvent>occur</standardEvent>
+          </planItemOnPart>
+        </sentry>
+        <stage id="sid-706378AA-320C-4E10-BE85-AE2CA8ECE6E1" name="Decide claim" flowable:includeInStageOverview="false">
+          <extensionElements>
+            <design:stencilid><![CDATA[ExpandedStage]]></design:stencilid>
+          </extensionElements>
+          <planItem id="planItemsid-AB2558E9-8FE2-4698-AA06-A12ADD908CEA" name="Claim rejected" definitionRef="sid-AB2558E9-8FE2-4698-AA06-A12ADD908CEA">
+            <itemControl>
+              <extensionElements>
+                <flowable:completionNeutralRule></flowable:completionNeutralRule>
+              </extensionElements>
+            </itemControl>
+            <entryCriterion id="entryCriterion3" sentryRef="sentryentryCriterion3"></entryCriterion>
+          </planItem>
+          <planItem id="planItemsid-A4D7AC11-2682-4907-B7C2-F94EE9001BE1" name="Claim accepted" definitionRef="sid-A4D7AC11-2682-4907-B7C2-F94EE9001BE1">
+            <itemControl>
+              <extensionElements>
+                <flowable:completionNeutralRule></flowable:completionNeutralRule>
+              </extensionElements>
+            </itemControl>
+            <entryCriterion id="entryCriterion2" sentryRef="sentryentryCriterion2"></entryCriterion>
+          </planItem>
+          <sentry id="sentryentryCriterion3">
+            <extensionElements>
+              <flowable:condition group="true" match="all" targetAttribute="condition">
+                <flowable:condition sourceVariableType="variable" sourceName="accept" sourceType="string" operator="equals" targetVariableType="value" targetValue="No" targetType="string"></flowable:condition>
+              </flowable:condition>
+              <design:stencilid><![CDATA[EntryCriterion]]></design:stencilid>
+            </extensionElements>
+            <ifPart>
+              <condition><![CDATA[${vars:equals(accept, 'No')}]]></condition>
+            </ifPart>
+          </sentry>
+          <sentry id="sentryentryCriterion2">
+            <extensionElements>
+              <flowable:condition group="true" match="all" targetAttribute="condition">
+                <flowable:condition sourceVariableType="variable" sourceName="accept" sourceType="string" operator="equals" targetVariableType="value" targetValue="Yes" targetType="string"></flowable:condition>
+              </flowable:condition>
+              <design:stencilid><![CDATA[EntryCriterion]]></design:stencilid>
+            </extensionElements>
+            <ifPart>
+              <condition><![CDATA[${vars:equals(accept, 'Yes')}]]></condition>
+            </ifPart>
+          </sentry>
+          <milestone id="sid-AB2558E9-8FE2-4698-AA06-A12ADD908CEA" name="Claim rejected" flowable:includeInStageOverview="false" flowable:milestoneVariable="claimRejected">
+            <extensionElements>
+              <design:stencilid><![CDATA[Milestone]]></design:stencilid>
+              <design:completionneutral><![CDATA[true]]></design:completionneutral>
+              <design:statevisible><![CDATA[false]]></design:statevisible>
+              <design:milestonevariable><![CDATA[claimRejected]]></design:milestonevariable>
+            </extensionElements>
+          </milestone>
+          <milestone id="sid-A4D7AC11-2682-4907-B7C2-F94EE9001BE1" name="Claim accepted" flowable:includeInStageOverview="false" flowable:milestoneVariable="claimAccepted">
+            <extensionElements>
+              <design:stencilid><![CDATA[Milestone]]></design:stencilid>
+              <design:completionneutral><![CDATA[true]]></design:completionneutral>
+              <design:statevisible><![CDATA[false]]></design:statevisible>
+              <design:milestonevariable><![CDATA[claimAccepted]]></design:milestonevariable>
+            </extensionElements>
+          </milestone>
+        </stage>
+        <humanTask id="humanTask7" name="Review Claim" flowable:assignee="${initiator}" flowable:formKey="claimReviewForm" flowable:formFieldValidation="true" flowable:candidateGroups="management">
+          <extensionElements>
+            <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+            <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+            <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+          </extensionElements>
+        </humanTask>
+      </stage>
+      <stage id="sid-26012CC7-9A7B-40A0-B0DF-AF605036EE45" name="Handle claim" autoComplete="true" flowable:displayOrder="30" flowable:includeInStageOverview="true">
+        <extensionElements>
+          <design:stencilid><![CDATA[ExpandedStage]]></design:stencilid>
+        </extensionElements>
+        <planItem id="planItemsid-7BB2AB35-63D0-43BC-8DF7-12C05598CC57" name="Inform claimant of outcome" definitionRef="sid-7BB2AB35-63D0-43BC-8DF7-12C05598CC57"></planItem>
+        <planItem id="planItemhumanTask6" name="Make Payment &amp; Inform Claimant" definitionRef="humanTask6">
+          <itemControl>
+            <requiredRule></requiredRule>
+          </itemControl>
+          <entryCriterion id="entryCriterion8" sentryRef="sentryentryCriterion8"></entryCriterion>
+        </planItem>
+        <sentry id="sentryentryCriterion8">
+          <extensionElements>
+            <design:stencilid><![CDATA[EntryCriterion]]></design:stencilid>
+          </extensionElements>
+          <ifPart>
+            <condition><![CDATA[${vars:equals(claimAccepted, true)}]]></condition>
+          </ifPart>
+        </sentry>
+        <humanTask id="sid-7BB2AB35-63D0-43BC-8DF7-12C05598CC57" name="Inform claimant of outcome" flowable:assignee="${initiator}" flowable:formKey="informClaimOutcomeForm" flowable:formFieldValidation="true" flowable:candidateGroups="backoffice">
+          <extensionElements>
+            <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+            <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+            <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+          </extensionElements>
+        </humanTask>
+        <humanTask id="humanTask6" name="Make Payment &amp; Inform Claimant" flowable:candidateGroups="management" flowable:formKey="claimPaymentForm" flowable:formFieldValidation="false">
+          <extensionElements>
+            <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+            <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+            <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+          </extensionElements>
+        </humanTask>
+      </stage>
+      <humanTask id="humanTask1" name="Update claimant contact details" flowable:assignee="${initiator}" flowable:candidateGroups="backoffice" flowable:formKey="updateClaimantDetailsForm" flowable:formFieldValidation="false">
+        <extensionElements>
+          <flowable:task-candidates-type><![CDATA[all]]></flowable:task-candidates-type>
+          <design:stencilid><![CDATA[HumanTask]]></design:stencilid>
+          <design:stencilsuperid><![CDATA[Task]]></design:stencilsuperid>
+        </extensionElements>
+      </humanTask>
+      <userEventListener id="userEventListener1" name="Abandon claim">
+        <extensionElements>
+          <design:stencilid><![CDATA[UserEventListener]]></design:stencilid>
+          <design:stencilsuperid><![CDATA[EventListener]]></design:stencilsuperid>
+        </extensionElements>
+      </userEventListener>
+      <exitCriterion id="exitCriterion5" sentryRef="sentryexitCriterion5"></exitCriterion>
+    </casePlanModel>
+  </case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="CMMNDiagram_claimsCase">
+      <cmmndi:CMMNShape id="CMMNShape_casePlanModel" cmmnElementRef="casePlanModel">
+        <dc:Bounds height="795.0" width="936.0" x="75.0" y="45.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_exitCriterion5" cmmnElementRef="exitCriterion5">
+        <dc:Bounds height="28.0" width="18.0" x="1002.0" y="239.0482456140351"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-C96C8186-AF5D-4BF9-9D00-6CE267432655" cmmnElementRef="planItemsid-C96C8186-AF5D-4BF9-9D00-6CE267432655">
+        <dc:Bounds height="240.0" width="466.0224534412506" x="146.98877327937475" y="45.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_exitCriterion4" cmmnElementRef="exitCriterion4">
+        <dc:Bounds height="28.0" width="18.0" x="604.0112267206254" y="207.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-90304D08-098F-46B3-A63B-1BDA7D1B7BA0" cmmnElementRef="planItemsid-90304D08-098F-46B3-A63B-1BDA7D1B7BA0">
+        <dc:Bounds height="80.0" width="100.0" x="157.9907732793747" y="75.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-4F723359-49C6-45AC-BDFE-37B673DC233D" cmmnElementRef="planItemsid-4F723359-49C6-45AC-BDFE-37B673DC233D">
+        <dc:Bounds height="80.0" width="100.0" x="157.9907732793747" y="198.04824561403507"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemhumanTask5" cmmnElementRef="planItemhumanTask5">
+        <dc:Bounds height="80.0" width="100.0" x="355.0" y="75.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_entryCriterion7" cmmnElementRef="entryCriterion7">
+        <dc:Bounds height="28.0" width="18.0" x="346.0" y="101.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemhumanTask8" cmmnElementRef="planItemhumanTask8">
+        <dc:Bounds height="80.0" width="100.0" x="361.0" y="181.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-F6F08D75-51AD-4E14-B86A-9CE66B50F590" cmmnElementRef="planItemsid-F6F08D75-51AD-4E14-B86A-9CE66B50F590">
+        <dc:Bounds height="210.0" width="540.0" x="135.0" y="390.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_entryCriterion9" cmmnElementRef="entryCriterion9">
+        <dc:Bounds height="28.0" width="18.0" x="431.0" y="376.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-706378AA-320C-4E10-BE85-AE2CA8ECE6E1" cmmnElementRef="planItemsid-706378AA-320C-4E10-BE85-AE2CA8ECE6E1">
+        <dc:Bounds height="155.5" width="334.4960000000001" x="315.0" y="404.5"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_sid-6B2590FC-2D4D-42D1-B0AD-493691DD6F69" cmmnElementRef="sid-6B2590FC-2D4D-42D1-B0AD-493691DD6F69">
+        <dc:Bounds height="28.0" width="18.0" x="306.0" y="470.35135135135135"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_exitCriterion9" cmmnElementRef="exitCriterion9">
+        <dc:Bounds height="28.0" width="18.0" x="640.4960000000001" y="503.3033898305084"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_exitCriterion8" cmmnElementRef="exitCriterion8">
+        <dc:Bounds height="28.0" width="18.0" x="640.4960000000001" y="431.6152542372881"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-AB2558E9-8FE2-4698-AA06-A12ADD908CEA" cmmnElementRef="planItemsid-AB2558E9-8FE2-4698-AA06-A12ADD908CEA">
+        <dc:Bounds height="54.0" width="146.0" x="435.0" y="490.3033898305084"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_entryCriterion3" cmmnElementRef="entryCriterion3">
+        <dc:Bounds height="28.0" width="18.0" x="426.0" y="503.3033898305084"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-A4D7AC11-2682-4907-B7C2-F94EE9001BE1" cmmnElementRef="planItemsid-A4D7AC11-2682-4907-B7C2-F94EE9001BE1">
+        <dc:Bounds height="54.0" width="146.0" x="435.0" y="418.6152542372881"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_entryCriterion2" cmmnElementRef="entryCriterion2">
+        <dc:Bounds height="28.0" width="18.0" x="426.0" y="431.6152542372881"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemhumanTask7" cmmnElementRef="planItemhumanTask7">
+        <dc:Bounds height="80.0" width="100.0" x="157.9907732793747" y="444.35135135135135"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-26012CC7-9A7B-40A0-B0DF-AF605036EE45" cmmnElementRef="planItemsid-26012CC7-9A7B-40A0-B0DF-AF605036EE45">
+        <dc:Bounds height="150.0" width="570.0" x="165.0" y="660.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_sid-DD393CD8-F0AA-4AC7-9DB3-83E08330BC70" cmmnElementRef="sid-DD393CD8-F0AA-4AC7-9DB3-83E08330BC70">
+        <dc:Bounds height="28.0" width="18.0" x="478.46478873239425" y="646.0"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemsid-7BB2AB35-63D0-43BC-8DF7-12C05598CC57" cmmnElementRef="planItemsid-7BB2AB35-63D0-43BC-8DF7-12C05598CC57">
+        <dc:Bounds height="80.0" width="100.0" x="221.99080727219723" y="696.5"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemhumanTask6" cmmnElementRef="planItemhumanTask6">
+        <dc:Bounds height="80.0" width="100.0" x="405.0" y="696.5"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_entryCriterion8" cmmnElementRef="entryCriterion8">
+        <dc:Bounds height="28.0" width="18.0" x="446.0" y="682.5"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemhumanTask1" cmmnElementRef="planItemhumanTask1">
+        <dc:Bounds height="80.0" width="100.0" x="720.0" y="90.00000000000001"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="CMMNShape_planItemuserEventListener1" cmmnElementRef="planItemuserEventListener1">
+        <dc:Bounds height="30.501000000000005" width="30.498000000000047" x="735.0" y="237.79774561403508"></dc:Bounds>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="CMMNEdge_connector12" cmmnElementRef="planItemsid-A4D7AC11-2682-4907-B7C2-F94EE9001BE1" targetCMMNElementRef="exitCriterion8">
+        <di:extension>
+          <flowable:docker type="source" x="72.0" y="18.935064935064936"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="14.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="580.9499999998413" y="437.55031917235306"></di:waypoint>
+        <di:waypoint x="610.748" y="437.55031917235306"></di:waypoint>
+        <di:waypoint x="610.748" y="445.6152542372881"></di:waypoint>
+        <di:waypoint x="640.4960000000001" y="445.6152542372881"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="CMMNEdge_connector13" cmmnElementRef="planItemsid-AB2558E9-8FE2-4698-AA06-A12ADD908CEA" targetCMMNElementRef="exitCriterion9">
+        <di:extension>
+          <flowable:docker type="source" x="72.0" y="18.935064935064936"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="14.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="580.95" y="509.23845476557335"></di:waypoint>
+        <di:waypoint x="610.748" y="509.23845476557335"></di:waypoint>
+        <di:waypoint x="610.748" y="517.3033898305084"></di:waypoint>
+        <di:waypoint x="640.4960000000001" y="517.3033898305084"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="CMMNEdge_sid-4E9A1598-DF9D-4923-87A0-4435A88A3AE9" cmmnElementRef="planItemsid-F6F08D75-51AD-4E14-B86A-9CE66B50F590" targetCMMNElementRef="sid-DD393CD8-F0AA-4AC7-9DB3-83E08330BC70">
+        <di:extension>
+          <flowable:docker type="source" x="352.0" y="209.0"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="0.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="487.00939466586755" y="599.95"></di:waypoint>
+        <di:waypoint x="487.46478873239425" y="646.0"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="CMMNEdge_connector10" cmmnElementRef="planItemsid-C96C8186-AF5D-4BF9-9D00-6CE267432655" targetCMMNElementRef="entryCriterion9">
+        <di:extension>
+          <flowable:docker type="source" x="293.0" y="239.0"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="14.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="439.9888738962105" y="284.95"></di:waypoint>
+        <di:waypoint x="439.99851746982864" y="376.0"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="CMMNEdge_connector11" cmmnElementRef="planItemhumanTask7" targetCMMNElementRef="sid-6B2590FC-2D4D-42D1-B0AD-493691DD6F69">
+        <di:extension>
+          <flowable:docker type="source" x="50.0" y="40.0"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="14.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="257.94077327929637" y="484.35135135135135"></di:waypoint>
+        <di:waypoint x="286.49538663968735" y="484.35135135135135"></di:waypoint>
+        <di:waypoint x="286.49538663968735" y="484.35135135135135"></di:waypoint>
+        <di:waypoint x="306.0" y="484.35135135135135"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="CMMNEdge_connector9" cmmnElementRef="planItemsid-90304D08-098F-46B3-A63B-1BDA7D1B7BA0" targetCMMNElementRef="entryCriterion7">
+        <di:extension>
+          <flowable:docker type="source" x="50.0" y="40.0"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="14.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="257.94077327937475" y="115.0"></di:waypoint>
+        <di:waypoint x="306.49538663968735" y="115.0"></di:waypoint>
+        <di:waypoint x="306.49538663968735" y="115.0"></di:waypoint>
+        <di:waypoint x="346.0" y="115.0"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="CMMNEdge_connector14" cmmnElementRef="planItemhumanTask8" targetCMMNElementRef="exitCriterion4">
+        <di:extension>
+          <flowable:docker type="source" x="50.0" y="40.0"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="14.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="460.95000000000005" y="221.0"></di:waypoint>
+        <di:waypoint x="604.0112267206254" y="221.0"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="CMMNEdge_connector8" cmmnElementRef="planItemuserEventListener1" targetCMMNElementRef="exitCriterion5">
+        <di:extension>
+          <flowable:docker type="source" x="15.498000000000022" y="15.501000000000001"></flowable:docker>
+          <flowable:docker type="target" x="9.0" y="14.0"></flowable:docker>
+        </di:extension>
+        <di:waypoint x="765.9459929365478" y="253.28384266808865"></di:waypoint>
+        <di:waypoint x="1002.0055601340812" y="253.05684667153403"></di:waypoint>
+        <cmmndi:CMMNLabel></cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</definitions>

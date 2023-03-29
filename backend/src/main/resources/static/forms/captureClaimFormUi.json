@@ -1,0 +1,37 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/customerName"
+        },
+        {
+          "type": "Control",
+          "label":"DNI or NIE",
+          "scope": "#/properties/dninie"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/insurancePurchaseDate"
+        }
+      ]
+    },
+    
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/claimType",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    }
+   
+  ]
+}

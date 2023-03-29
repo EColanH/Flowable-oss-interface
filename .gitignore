@@ -1,0 +1,48 @@
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+/.idea/
+.vscode/
+
+/ui/.next/
+/ui/.vscode/
+/ui/.vscode/*
+/ui/node_modules/
+/ui/dist/
+/ui/yarn.lock
+/ui/package-lock.json
+
+# Logs
+/ui/logs
+/ui/*.log
+/ui/npm-debug.log*
+/ui/pnpm-debug.log*
+/ui/yarn-debug.log*
+/ui/yarn-error.log*
+/ui/lerna-debug.log*
+
+/backend/.mvn/
+/backend/target/
+/backend/quickstarter.iml
+
+# H2 DB
+data/

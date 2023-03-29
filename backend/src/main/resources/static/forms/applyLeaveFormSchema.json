@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "initiator": {
+      "type": "string"
+    },
+    "numberOfDays": {
+      "type": "number",
+      "minLength": 1
+    },
+    "leaveStartDate": {
+      "type": "string",
+      "format": "date"
+    },
+    
+    "leaveType": {
+      "type": "string",
+			"enum": [
+				"Vacation",
+				"Adoption",
+        "Maternity",
+        "Sickness",
+        "Unpaid"
+			]
+    }
+  },
+  "required": ["initiator", "numberOfDays", "leaveStartDate","leaveType"]
+}

@@ -1,0 +1,17 @@
+{
+      "type": "object",
+      "properties": {
+        "bonus": {
+          "type": "number",
+          "default": 100
+        },
+        "activation": {
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        }
+
+      }
+    }

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phoneNumber": {
+      "type": "integer",
+      "minLength": 9
+    },
+    "zipCode": {
+      "type": "number",
+      "minimum": 5
+    },
+    "email": {
+      "type": "string",
+      "minLength": 1
+    },
+    "address": {
+      "type": "string",
+      "minLength": 10
+    },
+    "pizzaType": {
+      "type": "string",
+      "enum": [
+        "ExtraVaganza",
+        "Neapolitan pizza",
+        "4 Cheese",
+        "Tony Pepperoni",
+        "Carbonara"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "phoneNumber",
+    "zipCode",
+    "address",
+    "pizzaType"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+      "type": "object",
+      "properties": {
+        "settlementAmount": {
+          "type": "number"
+        },
+        "comments": {
+          "type": "string"
+        }
+      },
+      "required": ["settlementAmount", "comments"]
+    }

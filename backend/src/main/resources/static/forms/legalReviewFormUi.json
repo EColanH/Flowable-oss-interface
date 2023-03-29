@@ -1,0 +1,27 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/comments"
+        }
+      ]
+    },
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/reasonForLegalReview",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    }
+   
+  ]
+}

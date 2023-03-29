@@ -1,0 +1,29 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/bonus"
+        }
+      ]
+    },
+    
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Activation",
+          "scope": "#/properties/activation",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    }
+   
+  ]
+}

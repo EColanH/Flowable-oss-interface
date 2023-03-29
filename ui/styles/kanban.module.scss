@@ -1,0 +1,35 @@
+.listCardContent {
+    height: 90vh;
+    position: sticky !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+}
+
+.listCard {
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.headerCardFont {
+    font-size: 18px !important;
+    color: white;
+}
+
+.contentCardFont {
+    font-size: 16px;
+}
+
+.titleCard {
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+
+.cardLinkStyle {
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+.cardHeaderPadding {
+    padding: 10px;
+}

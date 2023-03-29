@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "pizzaType": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "pizzaType"
+  ]
+}

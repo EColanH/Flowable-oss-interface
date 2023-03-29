@@ -1,0 +1,107 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Group",
+      "label": "Applicant Details",
+      "elements": [
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/applicantName",
+                  "options": {
+                    "readonly": true
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/income",
+                  "options": {
+                    "readonly": true
+                  }
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/age",
+                  "options": {
+                    "readonly": true
+                  }
+                },
+                {
+                  "type": "Control",
+                  "label": "DNI or NIE",
+                  "scope": "#/properties/dniNie",
+                  "options": {
+                    "readonly": true
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Label",
+              "text": "Address"
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/city",
+                  "options": {
+                    "readonly": true
+                  }
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/street",
+                  "options": {
+                    "readonly": true
+                  }
+                }
+              ]
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/zipCode",
+              "options": {
+                "readonly": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Identification",
+      "elements": [
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/approval",
+              "options": {
+                "format": "radio"
+              }
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/reviewComments"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "number"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+
+      }
+    }

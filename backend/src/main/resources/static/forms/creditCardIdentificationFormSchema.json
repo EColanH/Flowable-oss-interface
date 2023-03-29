@@ -1,0 +1,14 @@
+{
+      "type": "object",
+      "properties": {
+        "identification": {
+          "type": "string",
+          "enum": [
+            "IBAN",
+            "Selfie",
+            "Video"
+          ]
+        }
+
+      }
+    }

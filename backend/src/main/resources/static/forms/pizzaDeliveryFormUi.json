@@ -1,0 +1,21 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "label": false,
+      "scope": "#/properties/done"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label":  "Comments",
+          "scope": "#/properties/comments"
+        }
+        
+      ]
+    }
+  ]
+}

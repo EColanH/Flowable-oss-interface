@@ -1,0 +1,136 @@
+@baseUrl = http://localhost:8080
+@user = admin
+@password =  test
+
+###
+
+POST {{baseUrl}}/idm-api/groups
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "id": "management",
+  "url": "http://localhost:8080/groups/management",
+  "name": "Management group",
+  "type": "Management type",
+  "key": "management",
+  "tenantId": "managementtenant",
+  "nameChanged": true,
+  "typeChanged": true
+}
+
+###
+POST {{baseUrl}}/idm-api/groups
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "id": "backoffice",
+  "url": "http://localhost:8080/groups/backoffice",
+  "name": "Back office group",
+  "type": "Back office type",
+  "key": "backoffice",
+  "tenantId": "backofficetenant",
+  "nameChanged": true,
+  "typeChanged": true
+}
+
+###
+POST {{baseUrl}}/idm-api/groups
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "id": "flowableAdministrator",
+  "url": "http://localhost:8080/groups/flowableAdministrator",
+  "name": "Flowable Administrator",
+  "type": "Administrator",
+  "key": "flowableAdministrator",
+  "tenantId": "flowableAdministratorTenant",
+  "nameChanged": true,
+  "typeChanged": true
+}
+
+###
+POST {{baseUrl}}/idm-api/users
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "id": "jim.harper",
+  "firstName": "Jim",
+  "lastName": "Harper",
+  "displayName": "Jim Harper",
+  "loginName": "jim.harper",
+  "email": "jim.harper@quickstarter.com",
+  "password": "test",
+  "repeatPassword": "test"
+}
+
+###
+POST {{baseUrl}}/idm-api/users
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "id": "pam.beesly",
+  "firstName": "Pam",
+  "lastName": "Beesly",
+  "displayName": "Pam Beesly",
+  "loginName": "pam.beesly",
+  "email": "pam.beesly@quickstarter.com",
+  "password": "test",
+  "repeatPassword": "test"
+}
+
+###
+POST {{baseUrl}}/idm-api/users
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "id": "dwight.schrute",
+  "firstName": "Dwight",
+  "lastName": "Schrute",
+  "displayName": "Dwight Schrute",
+  "loginName": "dwight.schrute",
+  "email": "dwight.schrute@quickstarter.com",
+  "password": "test",
+  "repeatPassword": "test"
+}
+
+###
+POST {{baseUrl}}/idm-api/groups/management/members
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "userId": "dwight.schrute"
+}
+
+###
+POST {{baseUrl}}/idm-api/groups/backoffice/members
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "userId": "jim.harper"
+}
+
+###
+POST {{baseUrl}}/idm-api/groups/backoffice/members
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "userId": "pam.beesly"
+}
+
+###
+POST {{baseUrl}}/idm-api/groups/flowableAdministrator/members
+Content-Type: application/json
+Authorization: Basic {{user}} {{password}}
+
+{
+  "userId": "admin"
+}

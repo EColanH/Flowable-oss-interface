@@ -1,0 +1,19 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/comments"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/settlementAmount"
+        }
+      ]
+    }
+   
+  ]
+}

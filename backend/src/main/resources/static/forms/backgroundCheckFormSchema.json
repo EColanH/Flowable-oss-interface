@@ -1,0 +1,23 @@
+{
+      "type": "object",
+      "properties": {
+        "comments": {
+          "type": "string"
+        },
+        "backgroundCheck": {
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "applicantValidated": {
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        }
+
+      }
+    }

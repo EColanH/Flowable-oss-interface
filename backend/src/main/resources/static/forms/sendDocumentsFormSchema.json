@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "comments": {
+      "type": "string"
+    },
+    "initiator": {
+      "type": "string"
+    },
+    "leaveStartDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "leaveType": {
+      "type": "string"
+    },
+    "numberOfDays": {
+      "type": "number"
+    },
+    "nameOfDocument": {
+      "type": "string"
+    }
+  },
+  "required": ["nameOfDocument"]
+}

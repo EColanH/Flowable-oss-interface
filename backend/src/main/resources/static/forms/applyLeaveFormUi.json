@@ -1,0 +1,40 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "label": false,
+      "scope": "#/properties/done"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label":  "Name",
+          "scope": "#/properties/initiator"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/numberOfDays"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/leaveStartDate"
+        },
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/leaveType",
+              "options": {
+                "format": "radio"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "chooseTheModeOfIdentification": {
+      "type": "string",
+      "enum": [
+        "IBAN",
+        "Selfie",
+        "Video"
+      ]
+    }
+  }
+}

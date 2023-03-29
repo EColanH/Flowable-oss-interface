@@ -1,0 +1,53 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/applicantName"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/income"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/age"
+        },
+        {
+          "type": "Control",
+          "label": "DNI or NIE",
+          "scope": "#/properties/nie"
+        }
+      ]
+    },
+    {
+      "type": "Label",
+      "text": "Address"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/city"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/street"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/zipCode"
+    }
+  ]
+}

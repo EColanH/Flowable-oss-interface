@@ -1,0 +1,25 @@
+{
+      "type": "object",
+      "properties": {
+        "customerName": {
+          "type": "string"
+        },
+        "dninie": {
+          "type": "string"
+        },
+        "insurancePurchaseDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "claimType": {
+          "type": "string",
+          "enum": [
+            "Burglary or theft",
+            "Own damage claim",
+            "Third party claim"
+          ]
+        }
+
+      },
+      "required": ["claimType","insurancePurchaseDate","dninie","customerName"]
+    }

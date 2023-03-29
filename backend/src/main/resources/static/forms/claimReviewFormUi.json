@@ -1,0 +1,42 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/reviewComments"
+        }
+      ]
+    },
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/thirdParty",
+          "options": {
+            "format": "radio"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/accept",
+          "options": {
+            "format": "radio"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/legalIssuesReported",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    }
+   
+   
+  ]
+}

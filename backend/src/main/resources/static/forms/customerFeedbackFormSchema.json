@@ -1,0 +1,19 @@
+{
+      "type": "object",
+      "properties": {
+        "experience": {
+          "type": "string"
+        },
+        "reccommendation": {
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "comments": {
+          "type": "string"
+        }
+
+      }
+    }

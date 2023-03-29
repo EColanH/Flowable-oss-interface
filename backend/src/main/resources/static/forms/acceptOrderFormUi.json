@@ -1,0 +1,33 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "label": false,
+      "scope": "#/properties/done"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label":  "Pizza Type",
+          "scope": "#/properties/pizzaType"
+        },
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/acceptOrder",
+              "options": {
+                "format": "radio"
+              }
+            }
+          ]
+        }
+        
+      ]
+    }
+  ]
+}

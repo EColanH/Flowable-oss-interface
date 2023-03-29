@@ -1,0 +1,23 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/claimNumber"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/legalities"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/additionalInformation"
+        }
+      ]
+    }
+      ]
+    }
+   

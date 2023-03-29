@@ -1,0 +1,36 @@
+.diagramContainer {
+  display: flex;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.noDiagramContainer {
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.positionRight {
+  position: absolute;
+  right: 15px;
+}
+
+.bringToFront {
+  z-index: 1;
+}
+
+.modalCard {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  -ms-overflow-y: visible;
+  width: 70%;
+}

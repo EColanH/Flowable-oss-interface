@@ -1,0 +1,38 @@
+{
+      "type": "object",
+      "properties": {
+        "applicantName": {
+          "type": "string"
+        },
+        "income": {
+          "type": "integer"
+        },
+        "dob": {
+          "type": "string",
+          "format": "date"
+        },
+        "dninie": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "creditCardType": {
+          "type": "string"
+        },
+        "identification": {
+          "type": "string"
+        },
+        "verify": {
+          "type": "string",
+          "enum": [
+            "Yes"
+          ]
+        }
+
+
+      }, 
+      "required": [
+        "verify"
+      ]
+    }

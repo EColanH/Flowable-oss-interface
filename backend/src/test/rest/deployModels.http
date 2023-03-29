@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:8080
+@user = admin
+@password =  test
+
+###
+
+POST {{baseUrl}}/flowable-rest/service/repository/deployments?deploymentKey=leaveRequest&deploymentName=Leave Request
+Content-Type: multipart/form-data; boundary=<calculated when request is sent>
+Authorization: Basic {{user}} {{password}}
+Content-Disposition: form-data; name="Leave_Request.bpmn20.xml"
+
+POST {{baseUrl}}/flowable-rest/service/repository/deployments?deploymentKey=leaveRequest&deploymentName=Open Bank Account
+Content-Type: multipart/form-data; boundary=<calculated when request is sent>
+Authorization: Basic {{user}} {{password}}
+Content-Disposition: form-data; name="Open_Bank_Account.bpmn20.xml"
+
+POST {{baseUrl}}/flowable-rest/service/repository/deployments?deploymentKey=leaveRequest&deploymentName=Order Pizza
+Content-Type: multipart/form-data; boundary=<calculated when request is sent>
+Authorization: Basic {{user}} {{password}}
+Content-Disposition: form-data; name="Order_Pizza.bpmn20.xml"
+
+POST {{baseUrl}}/flowable-rest/service/repository/deployments?deploymentKey=leaveRequest&deploymentName=Register Credit Card
+Content-Type: multipart/form-data; boundary=<calculated when request is sent>
+Authorization: Basic {{user}} {{password}}
+Content-Disposition: form-data; name="Register_Credit Card.bpmn20.xml"
+
+POST {{baseUrl}}/flowable-rest/service/repository/deployments?deploymentKey=leaveRequest&deploymentName=Claims Case
+Content-Type: multipart/form-data; boundary=<calculated when request is sent>
+Authorization: Basic {{user}} {{password}}
+Content-Disposition: form-data; name="Claims_Case.bpmn20.xml"
+
+POST {{baseUrl}}/flowable-rest/service/repository/deployments?deploymentKey=leaveRequest&deploymentName=Credit Card Case
+Content-Type: multipart/form-data; boundary=<calculated when request is sent>
+Authorization: Basic {{user}} {{password}}
+Content-Disposition: form-data; name="Credit_Card_Case.bpmn20.xml"

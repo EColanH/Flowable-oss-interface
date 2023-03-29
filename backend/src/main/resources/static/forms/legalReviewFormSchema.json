@@ -1,0 +1,18 @@
+{
+      "type": "object",
+      "properties": {
+        "comments": {
+          "type": "string"
+        },
+
+        "reasonForLegalReview": {
+          "type": "string",
+          "enum": [
+            "Incident occurred out of state",
+            "Minors involved",
+            "The customer was not driving the car"
+          ]
+        }
+
+      }
+    }

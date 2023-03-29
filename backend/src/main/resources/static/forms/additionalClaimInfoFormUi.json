@@ -1,0 +1,39 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/additionalInfo"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/guidelines",
+          "rule": {
+            "effect": "DISABLE",
+            "condition": {
+              "scope": "#",
+              "schema": {}
+            }
+        }
+      }
+      ]
+    },
+    
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/claimTYpe",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    }
+   
+  ]
+}

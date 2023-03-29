@@ -1,0 +1,35 @@
+{
+  "type": "object",
+      "properties": {
+        "applicantName": {
+          "type": "string",
+          "readOnly": true
+        },
+        "income": {
+          "type": "integer",
+          "readOnly": true
+        },
+        "dob": {
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "dninie": {
+          "type": "string",
+          "readOnly": true
+        },
+        "email": {
+          "type": "string",
+          "readOnly": true
+        },
+        "creditCardType": {
+          "type": "string",
+          "readOnly": true
+        },
+        "identification": {
+          "type": "string",
+          "readOnly": true
+        }
+
+      }
+    }

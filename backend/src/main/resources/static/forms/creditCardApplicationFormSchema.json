@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "applicantName": {
+      "type": "string"
+    },
+    "income": {
+      "type": "integer",
+      "minLength": 1,
+      "maxLength": 12
+    },
+    "dob": {
+      "type": "string",
+      "format": "date"
+    },
+    "dninie": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "creditCardType": {
+      "type": "string",
+      "enum": [
+        "Gold",
+        "Silver",
+        "Platinum"
+      ]
+    }
+  },
+  "required": [
+    "applicantName",
+    "income",
+    "dninie",
+    "dob",
+    "creditCardType",
+    "email"
+  ]
+}

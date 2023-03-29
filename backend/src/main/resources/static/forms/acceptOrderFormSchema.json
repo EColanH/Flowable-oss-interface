@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "pizzaType": {
+      "type": "string"
+    },
+    "acceptOrder": {
+      "type": "string",
+			"enum": [
+				"Yes",
+				"No"
+			]
+    }
+},
+"required": ["pizzaType","acceptOrder"]
+}

@@ -1,0 +1,13 @@
+{
+      "type": "object",
+      "properties": {
+        "additionalInfo": {
+          "type": "string"
+        },
+        "guidelines": {
+          "type": "string",
+          "default": " Please check and reach out to the customer for any additional info related to the claim filing number, policy number, name of the policyholder/claimant/beneficiary, reporting date etc. "
+        }
+
+      }
+    }

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "comments": {
+      "type": "string"
+    },
+    "initiator": {
+      "type": "string"
+    },
+    "leaveStartDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "leaveType": {
+      "type": "string"
+    },
+    "nameOfDocument": {
+      "type": "string"
+    },
+    "numberOfDays": {
+      "type": "number"
+    },
+    
+    "approveOrReview": {
+      "type": "string",
+			"enum": [
+				"Approve",
+				"Review"
+			]
+    }
+  },
+  "required": ["approveOrReview"]
+}

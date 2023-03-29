@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "applicantName": {
+      "type": "string"
+    },
+    "income": {
+      "type": "integer",
+      "minLength": 1,
+      "maxLength": 12
+    },
+    "age": {
+      "type": "integer",
+      "minLength": 2
+    },
+    "dniNie": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "number",
+      "minLength": 5
+    },
+    "approval": {
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No"
+      ]
+    },
+    "reviewComments": {
+      "type": "string"
+    }
+  }
+}
+

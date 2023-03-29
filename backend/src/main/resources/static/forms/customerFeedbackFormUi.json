@@ -1,0 +1,33 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/application/properties/experience"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/application/properties/comments"
+        }
+      ]
+    },
+    
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Background Check",
+          "scope": "#/properties/reccommendation",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    }
+   
+  ]
+}

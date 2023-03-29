@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "bill": {
+      "type": "number",
+      "default": 10
+    },
+    "howDoYouWantToMakeThePayment": {
+      "type": "string",
+			"enum": [
+				"Cash",
+				"Card Reader",
+        "Online Payment"
+			]
+    }
+  },
+  "required": ["bill", "howDoYouWantToMakeThePayment"]
+}

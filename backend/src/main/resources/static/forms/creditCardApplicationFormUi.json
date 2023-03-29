@@ -1,0 +1,51 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/applicantName"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/income"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/email"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Date of Birth",
+          "scope": "#/properties/dob"
+        },
+        {
+          "type": "Control",
+          "label": "DNI or NIE",
+          "scope": "#/properties/dninie"
+        }
+      ]
+    },
+    {
+      "type": "VerticalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Credit Card Type",
+          "scope": "#/properties/creditCardType",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    }
+   
+  ]
+}

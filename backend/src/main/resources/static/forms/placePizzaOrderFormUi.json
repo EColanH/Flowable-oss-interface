@@ -1,0 +1,48 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "label": false,
+      "scope": "#/properties/done"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label":  "Name",
+          "scope": "#/properties/name"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/phoneNumber"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/zipCode"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/email"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/address"
+        },
+        {
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/pizzaType",
+              "options": {
+                "format": "radio"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

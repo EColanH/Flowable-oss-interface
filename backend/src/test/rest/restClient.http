@@ -1,0 +1,15 @@
+@baseUrl = http://localhost:8080
+@adminUrl = admin:test
+
+GET {{baseUrl}}/actuator/health
+Authorization: Basic {{adminUrl}}
+
+###
+
+GET {{baseUrl}}/process-api/management/engine
+Authorization: Basic {{adminUrl}}
+
+###
+
+GET {{baseUrl}}/process-api/runtime/process-instances?sort=startTime&order=desc
+Authorization: Basic {{adminUrl}}

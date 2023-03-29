@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "applicantName": {
+      "type": "string"
+    },
+    "income": {
+      "type": "integer",
+      "minLength": 1
+    },
+    "age": {
+      "type": "integer",
+      "minLength": 2
+    },
+    "nie": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "integer",
+      "minLength": 5
+    }
+  },
+  "required": [
+    "applicantName",
+    "income",
+    "age",
+    "nie",
+    "city",
+    "street",
+    "zipCode"
+  ]
+}
